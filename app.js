@@ -8,7 +8,9 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());//application/json
 
 
-app.use('/api/register',require('./routers/register'))
+app.use('/api/register',require('./routers/register'));
+app.use('/api/login',require('./routers/login'));
+
 app.use((error,req,res,next) => {
     if ( error instanceof Joi.ValidationError ){
          return res.send({
